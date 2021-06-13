@@ -93,6 +93,56 @@ export const store = new Vuex.Store({
       } catch (error) {
         console.log(error);
       }
+    },
+    async createRomanceProduct({ commit, state }, payload) {
+      const romanceProduct = {
+        title: payload.title,
+        writer: payload.writer,
+        desc: payload.desc,
+        price: payload.price,
+        userId: fb.auth.currentUser.uid,
+        userName: state.userProfile.email,
+        createdOn: new Date()
+      };
+      let imageUrl;
+      let key;
+      let storageRef = fb.storage;
+      const data = await fb.romanceCollection.add(romanceProduct);
+      key = data.id;
+      console.log("key --> " + key);
+      const fileName = payload.src.name;
+      console.log(fileName);
+      const ext = fileName.slice(fileName.lastIndexOf("."));
+      console.log(ext);
+      console.log(storageRef);
+      const fileData = await storageRef
+        .child("romanceProductsImages/" + key + "." + ext)
+        .put(payload.src);
+      imageUrl = await fileData.ref.getDownloadURL();
+      console.log(imageUrl);
+      await fb.romanceCollection.doc(key).get();
+      await fb.romanceCollection.doc(key).update({
+        src: imageUrl
+      });
+    },
+    async updateRomanceProduct({}, itemForUpdate) {
+      console.log(itemForUpdate.id);
+      try {
+        await fb.romanceCollection.doc(itemForUpdate.id).update({
+          title: itemForUpdate.title,
+          desc: itemForUpdate.desc,
+          src: itemForUpdate.src,
+          price: itemForUpdate.price,
+          writer: itemForUpdate.writer
+        });
+        setTimeout(() => {
+          alert(
+            "Product: " + itemForUpdate.title + " was successfully updated!"
+          );
+        }, 100);
+      } catch (error) {
+        console.log(error);
+      }
     }
   },
   mutations: {

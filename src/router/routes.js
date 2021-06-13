@@ -12,11 +12,11 @@ const routes = [
   { path: "/", component: Home },
   { path: "/home", component: Home },
   { path: "/about", component: About },
-  { path: "/products", component: Products },
-  { path: "/products/romance-products", component: RomanceProducts },
-  { path: "/products/scifi-products", component: ScifiProducts },
-  { path: "/products/horror-products", component: HorrorProducts },
-  { path: "/products/classics-products", component: ClassicsProducts },
+  { path: "/products", component: Products, meta: {requiresAuth: true} },
+  { path: "/products/romance-products", component: RomanceProducts, meta: {requiresAuth: true} },
+  { path: "/products/scifi-products", component: ScifiProducts, meta: {requiresAuth: true} },
+  { path: "/products/horror-products", component: HorrorProducts, meta: {requiresAuth: true} },
+  { path: "/products/classics-products", component: ClassicsProducts, meta: {requiresAuth: true} },
   { path: "/login", component: Login },
   { path: "/register", component: Register }
 ];
