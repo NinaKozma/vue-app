@@ -43,21 +43,6 @@
 </script>
 
 <style scoped>
-  * {
-    font-family: 'Mate SC', 'cursive';
-  }
-  .navbar {
-    background: rgb(191, 107, 107);
-  }
-  .navbar-title {
-    color: white;
-    margin-left: 20px;
-    font-size: 30px;
-  }
-  .navbar-collapse {
-    color: lightslategray;
-    margin-left: 40px;
-    font-size: 25px;
-  }
+@import '../scss/header.css';
 </style>
 
