@@ -420,6 +420,7 @@ display: flex;
   font-size: 15px;
 }
 .modal-wrapper-update {
+  background: rgb(191, 107, 107);
   font-size: 15px;
   justify-content: center;
   align-items: center;
@@ -432,6 +433,8 @@ display: flex;
 .delete-action-buttons {
   margin-top: 20px;
   font-size: 22px;
+  justify-content: center;
+  align-items: center;
 }
 .btn-primary, .btn-danger {
   margin-right: 20px;
@@ -446,7 +449,7 @@ border-radius: 5px;
 margin-bottom:10px;
 }
 .modal-content{
-  border: none !inportant;
+  border: none !important;
   padding: 10px 0;
   }
 .modal.content.name

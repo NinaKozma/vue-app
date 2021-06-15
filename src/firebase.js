@@ -31,6 +31,7 @@ const romanceCollection = db.collection("romance");
 const horrorCollection = db.collection("horror");
 const scifiCollection = db.collection("scifi");
 const classicsCollection = db.collection("classics");
+const peopleCollection = db.collection("people");
 
 // export utils/refs
 export {
@@ -41,5 +42,6 @@ export {
   romanceCollection,
   horrorCollection,
   scifiCollection,
-  classicsCollection
+  classicsCollection,
+  peopleCollection
 };
